@@ -1,3 +1,14 @@
+const menuToggle=document.getElementById('menuToggle');
+const sideMenu=document.getElementById('sideMenu');
+const menuBackdrop=document.getElementById('menuBackdrop');
+const menuClose=document.getElementById('menuClose');
+const closeSideMenu=()=>{if(!sideMenu)return;sideMenu.hidden=true;menuBackdrop.hidden=true;menuToggle?.setAttribute('aria-expanded','false');menuToggle?.setAttribute('aria-label','Open navigation menu')};
+const openSideMenu=()=>{if(!sideMenu)return;sideMenu.hidden=false;menuBackdrop.hidden=false;menuToggle?.setAttribute('aria-expanded','true');menuToggle?.setAttribute('aria-label','Close navigation menu')};
+menuToggle?.addEventListener('click',()=>sideMenu.hidden?openSideMenu():closeSideMenu());
+menuClose?.addEventListener('click',closeSideMenu);
+menuBackdrop?.addEventListener('click',closeSideMenu);
+sideMenu?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{sideMenu.querySelectorAll('a').forEach(item=>item.classList.remove('active'));link.classList.add('active');closeSideMenu()}));
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&sideMenu&&!sideMenu.hidden)closeSideMenu()});
 const profileTrigger=document.getElementById('profileTrigger');
 const profileMenu=document.getElementById('profileMenu');
 profileTrigger?.addEventListener('click',()=>profileMenu.classList.toggle('show'));
