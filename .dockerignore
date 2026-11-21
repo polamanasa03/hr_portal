@@ -1,0 +1,16 @@
+.git
+.github
+.pytest_cache
+__pycache__
+*.py[cod]
+.env
+.venv
+portal.db
+portal.db-*
+Designs
+playwright-report
+requirements-dev.txt
+test-results
+tests
+QA_ANALYSIS.md
+README.md
