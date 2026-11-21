@@ -19,4 +19,4 @@ LABEL org.opencontainers.image.source="https://github.com/polamanasa03/hr_portal
 USER portal
 EXPOSE 5000
 
-CMD ["gunicorn", "--bind=0.0.0.0:5000", "--workers=2", "--access-logfile=-", "--error-logfile=-", "app:app"]
+CMD ["sh", "-c", "exec gunicorn --bind=0.0.0.0:${PORT:-5000} --workers=2 --access-logfile=- --error-logfile=- app:app"]

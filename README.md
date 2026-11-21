@@ -47,4 +47,4 @@ docker run --rm -p 5000:5000 \
   hr-portal:local
 ```
 
-The named volume stores SQLite data across container restarts. The production image refuses to start without `PORTAL_SECRET_KEY`.
+The named volume stores SQLite data across container restarts. The production image refuses to start without `PORTAL_SECRET_KEY`. Deployment hosts that provide `PORT` are supported; otherwise the image listens on port 5000. Configure a persistent `PORTAL_SECRET_KEY` in the deployment environment before starting the image.
